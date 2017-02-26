@@ -7,7 +7,7 @@ describe 'Pathway' do
    }
  
   let (:pathway) {Pathway.new(data)}
- 
+
   it 'has a student name' do
   	expect(pathway.student_name).to eq "Jayde Beahan"
   end
@@ -16,7 +16,4 @@ describe 'Pathway' do
   	expect(pathway.goal_domains).to eq ["K.RI", "1.RI", "2.RF", "2.RI", "3.RF"]
   end
 
-  xit 'has 5 or less units in the goal domains array' do 
-  	expect (pathway.goal_domains.length).to eq 5
-  end
 end
