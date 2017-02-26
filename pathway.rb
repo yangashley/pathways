@@ -6,9 +6,9 @@ class Pathway
 		@goal_domains = args.fetch(:goal_domains)
 	end
 
-	def add_unit(unit)
+	def add_unit_to_goal_domains(unit)
 		if @goal_domains.length < 5
-         @goal_domains << unit               
+      @goal_domains << unit               
     end
 	end
 end
