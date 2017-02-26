@@ -16,4 +16,9 @@ describe 'Pathway' do
   	expect(pathway.goal_domains).to eq ["K.RI", "1.RI", "2.RF", "2.RI", "3.RF"]
   end
 
+  it 'will not add another unit if there are already 5 units in the goal domains array' do
+    pathway.add_unit("3.RL")
+  	expect(pathway.goal_domains.length).to eq 5
+  end
+
 end
