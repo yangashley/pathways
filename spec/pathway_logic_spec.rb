@@ -39,8 +39,8 @@ describe 'PathwayLogic' do
  	end 	
 
  	describe '#starting_domain' do 
- 		it 'returns the first domain a student should start working on as a string according to test data and domain order' do
-	    expect(PathwayLogic.starting_domain(@test_data, @parsed_domains)).to eq "RI"
- 		end		
+ 		# it 'returns the first domain a student should start working on as a string according to test data and domain order' do
+	  #   expect(PathwayLogic.starting_domain(@test_data, @parsed_domains)).to eq "RI"
+ 		# end		
  	end 	
 end

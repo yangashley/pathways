@@ -22,6 +22,7 @@ end
 
 # index doesn't work
 # something is becoming NIL
+# want it to return "1.RL"
 lowest_domains.each do |student_data_hash|
 	PathwayLogic.starting_domain(student_data_hash, domain_data)
 end

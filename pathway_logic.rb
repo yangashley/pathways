@@ -23,22 +23,22 @@ module PathwayLogic
 	def self.lowest_grade_domain_order(test_hash, domain_order)
 	  lowest_grade = PathwayLogic.find_lowest_grade(test_hash)
 	  if lowest_grade != 0
-	    domain_order[lowest_grade]
+	    domain_order[lowest_grade.to_s]
 	   else
 	     domain_order["K"]
 	   end
 	end	
 
-	def self.starting_domain(test_hash, domain_order)
-	  domain_indices  = []
-	  domain_order = PathwayLogic.lowest_grade_domain_order(test_hash, domain_order)
-	  lowest_domains = PathwayLogic.find_lowest_domains(test_hash)
+	# def self.starting_domain(test_hash, domain_order)
+	#   domain_indices  = []
+	#   domain_order = PathwayLogic.lowest_grade_domain_order(test_hash, domain_order)
+	#   lowest_domains = PathwayLogic.find_lowest_domains(test_hash)
     
-    lowest_domains.keys.each do |domain|
-      domain_indices << domain_order.index(domain)
-    end
-    domain_order[domain_indices.min]
-	end
+ #    lowest_domains.keys.each do |domain|
+ #      domain_indices << domain_order.index(domain)
+ #    end
+ #    domain_order[domain_indices.min]
+	# end
 
 end
   
