@@ -20,8 +20,14 @@ module PathwayLogic
 
 	def self.lowest_grade_domain_order(test_hash, domain_order)
 	  lowest_grade = PathwayLogic.find_lowest_grade(test_hash)
-	  domain_order[lowest_grade]
+	  if lowest_grade != 0
+	    domain_order[lowest_grade]
+	   else
+	     domain_order["K"]
+	   end
 	end	
+
+
 	# def self.lowest_domain(test_hash)
 	# 	lowest_grade = 0
 	# 	test_hash.each do |key, value|
