@@ -21,6 +21,12 @@ describe 'PathwayLogic' do
  		end
  	end
 
+ 	describe '#find_lowest_domains' do 
+ 		it 'returns a hash of lowest domains according to student test data' do 
+	    expect(PathwayLogic.find_lowest_domains(@test_data)).to be_a Hash
+ 		end		
+ 	end
+
 	# describe '#lowest_domain' do
 
 	  # it 'returns the first lowest_domain from a student test hash' do 
