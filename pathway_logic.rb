@@ -14,7 +14,7 @@ module PathwayLogic
 
 	def self.find_lowest_domains(test_hash)
 		test_hash.select do |domain, grade|
-	    grade == PathwayLogic.find_lowest_grade(test_hash)
+	    grade.to_i == PathwayLogic.find_lowest_grade(test_hash)
 	  end
 	end
 
@@ -27,13 +27,16 @@ module PathwayLogic
 	   end
 	end	
 
-
-	# def self.lowest_domain(test_hash)
-	# 	lowest_grade = 0
-	# 	test_hash.each do |key, value|
-	# 		if 
-	# 		end
-	# 	end
+	# def self.starting_domain(test_hash, domain_order)
+	#   domain_indices  = []
+	#   domain_order = PathwayLogic.lowest_grade_domain_order(test_hash, domain_order)
+	#   lowest_domains = PathwayLogic.find_lowest_domains(test_hash)
+    
+ #    lowest_domains.keys.each do |domain|
+ #      domain_indices << domain_order.index(domain)
+ #    end
+ #    p starting_domain = domain_order[domain_indices.min]
 	# end
+	
 end
   
