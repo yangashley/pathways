@@ -17,8 +17,8 @@ describe 'PathwayLogic' do
  	end
 
  	describe '#find_lowest_grade' do 
- 		it 'returns the lowest grade as a string' do
- 			expect(PathwayLogic.find_lowest_grade(@test_data)).to eq "0"
+ 		it 'returns the lowest grade as an integer' do
+ 			expect(PathwayLogic.find_lowest_grade(@test_data)).to eq 0
  		end
  	end
 
