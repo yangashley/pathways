@@ -20,9 +20,9 @@ end
 # p lowest_domains
 # [{"RI"=>"0"}, {"RL"=>"1", "RI"=>"1", "L"=>"1"}, {"RF"=>"0", "RL"=>"0"}, {"RF"=>"2"}, {"RI"=>"0"}, {"RI"=>"1", "L"=>"1"}, {"RI"=>"0"}, {"RF"=>"0", "RL"=>"0"}, {"RI"=>"0"}, {"RL"=>"3", "L"=>"3"}, {"RF"=>"0", "RI"=>"0"}, {"RF"=>"0"}, {"RI"=>"2"}, {"L"=>"0"}, {"RF"=>"0"}, {"RI"=>"1"}, {"L"=>"0"}, {"RF"=>"0", "RI"=>"0"}, {"RF"=>"0"}, {"L"=>"2"}, {"RL"=>"0", "RI"=>"0"}, {"RF"=>"0"}, {"RF"=>"2", "RI"=>"2"}, {"L"=>"1"}, {"L"=>"0"}, {"RL"=>"0", "L"=>"0"}, {"RF"=>"0", "RL"=>"0"}, {"L"=>"1"}, {"RF"=>"0"}, {"RF"=>"0"}]
 
-# index doesn't work
-# something is becoming NIL
-# want it to return "1.RL"
-# lowest_domains.each do |student_data_hash|
-# 	PathwayLogic.starting_domain(student_data_hash, domain_data)
-# end
+first_domains = []
+lowest_domains.each do |student_data_hash|
+	first_domains << PathwayLogic.starting_domain(student_data_hash, domain_data)
+end
+
+p first_domains

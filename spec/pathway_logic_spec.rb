@@ -45,5 +45,6 @@ describe 'PathwayLogic' do
  			lowest_domains_hash = PathwayLogic.find_lowest_domains(@test_data)
 	    expect(PathwayLogic.starting_domain(lowest_domains_hash, @parsed_domains)).to eq "0.RI"
  		end		
+
  	end 	
 end

@@ -29,6 +29,22 @@ module PathwayLogic
 	   end
 	end	
 
-	
+	def self.starting_domain(test_hash, domain_order)
+	 first_domain = ""
+	  if test_hash.length == 1
+	    key = test_hash.keys.first
+	    first_domain += "#{test_hash[key]}.#{key}" 
+	  else
+	    domain_indices = []
+	    key = test_hash.keys.first
+      ordered_domains = PathwayLogic.lowest_grade_domain_order(test_hash, domain_order)
+      test_hash.keys.each do |domain|
+        domain_indices << ordered_domains.index(domain)
+      end
+      domain_position = domain_indices.compact.min
+      first_domain += "#{test_hash[key]}.#{ordered_domains[domain_position]}"
+    end
+    first_domain
+	end
 end
   
