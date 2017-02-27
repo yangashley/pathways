@@ -13,7 +13,9 @@ module PathwayLogic
 	end
 
 	def self.find_lowest_domains(test_hash)
-		test_hash.select do |domain, grade|
+		test_data = test_hash
+	  test_data.shift
+		test_data.select do |domain, grade|
 	    grade.to_i == PathwayLogic.find_lowest_grade(test_hash)
 	  end
 	end
