@@ -17,8 +17,7 @@ describe 'Pathway' do
   end
 
   it 'will not add another unit if there are already 5 units in the goal domains array' do
-    pathway.add_unit("3.RL")
+    pathway.add_unit_to_goal_domains("3.RL")
   	expect(pathway.goal_domains.length).to eq 5
   end
-
 end

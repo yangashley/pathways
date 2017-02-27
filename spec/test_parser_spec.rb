@@ -8,8 +8,6 @@ describe TestParser do
 
   it 'should return an array of hashes' do
     expect(@test_data).to be_an Array
-    p @test_data[0]
-
   end
 
   context "hashes in the array" do
@@ -20,7 +18,7 @@ describe TestParser do
   	end
 
 	  it 'have a grade level for the value of any key-value pair excluding the first one' do 
-	  	expect(test_hash["RF"]). to eq "2"
+	  	expect(test_hash["RF"]).to eq "2"
 	  end
   end
 
