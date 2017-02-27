@@ -25,7 +25,11 @@ describe 'PathwayLogic' do
  	describe '#find_lowest_domains' do 
  		it 'returns a hash of lowest domains according to student test data' do 
 	    expect(PathwayLogic.find_lowest_domains(@test_data)).to be_a Hash
- 		end		
+ 		end	
+
+ 		it 'returns a hash with with the domains as keys and grade levels as values' do 
+	    expect(PathwayLogic.find_lowest_domains(@test_data)).not_to include("Student Name"=>"Albin Stanton")
+ 		end	
  	end
 
  	describe '#lowest_grade_domain_order' do 
