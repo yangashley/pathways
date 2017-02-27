@@ -6,6 +6,6 @@ module DomainParser
 		CSV.foreach(filename) do |row|
 			domain_order_hash[row[0]] = row[1..-1]
 		end
-		domain_order_hash.select{|grade, domain| grade =="K"}
+		domain_order_hash
 	end
 end

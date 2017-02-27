@@ -15,11 +15,17 @@ describe 'PathwayLogic' do
 	  end
  	end
 
-	describe '#lowest_domain' do
+ 	describe '#find_lowest_grade' do 
+ 		it 'returns the lowest grade as a string' do
+ 			expect(PathwayLogic.find_lowest_grade(@test_data)).to eq "0"
+ 		end
+ 	end
+
+	# describe '#lowest_domain' do
 
 	  # it 'returns the first lowest_domain from a student test hash' do 
 	  # 	# PathwayLogic.convert_letter_k_to_zero(@test_data)
 	  #   expect(PathwayLogic.lowest_domain(@test_data)).to eq "K.RI"
 	  # end
-	end
+	# end
 end
