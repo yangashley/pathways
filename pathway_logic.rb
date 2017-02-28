@@ -45,5 +45,27 @@ module PathwayLogic
     end
     first_domain
 	end
+
+	# takes domains from the goal_domain array of a Pathway
+	def self.find_domains_for_grade(goal_domain, domain_order, test_hash)
+		grade_domain = goal_domain.split(".")
+		current_level = grade_domain[0]
+		current_domain = grade_domain[-1]
+		next_goal = []
+
+		if current_level != "0"
+	    possible_domains = domain_order[current_level]
+	  else
+	    possible_domains = domain_order["K"]
+	  end
+	  possible_domains.each do |domain|
+	  	if domain != current_domain
+	  		if current_level >= test_hash[domain]
+	 	  		next_goal << "#{current_level}.#{domain}"
+	  		end
+	  	end
+	  end
+	  next_goal
+	end
 end
-  
+

@@ -48,8 +48,11 @@ describe 'PathwayLogic' do
  	end 
 
  	describe '#find_domains_for_grade' do 
- 		it 'returns the next domain for as a string for a learning path' do 
- 			expect(PathwayLogic.find_domains_for_grade()).to eq "1.RI"
+ 		let(:test_hash) { {"RF"=>"0", "RL"=>"0", "RI"=>"4", "L"=>"3"} }
+
+ 		it 'returns the next domain(s) for a learning path in an array' do 
+ 			current_domain = "0.RF"
+ 			expect(PathwayLogic.find_domains_for_grade(current_domain, @parsed_domains, test_hash)).to eq ["0.RL"]
  		end
  	end	
 end
