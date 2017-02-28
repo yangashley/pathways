@@ -23,8 +23,10 @@ describe 'PathwayLogic' do
  	end
 
  	describe '#find_lowest_domains' do 
+ 		let(:test_hash) { {"Student Name"=>"Cat Nap", "RF"=>"2", "RL"=>"3", "RI"=>"K", "L"=>"3"} }
+
  		it 'returns a hash of lowest domains according to student test data' do 
-	    expect(PathwayLogic.find_lowest_domains(@test_data)).to be_a Hash
+	    expect(PathwayLogic.find_lowest_domains(test_hash)).to be_a Hash
  		end	
 
  		it 'returns a hash with with the domains as keys and grade levels as values' do 
@@ -40,7 +42,9 @@ describe 'PathwayLogic' do
 
  	describe '#starting_domain' do 
  		it 'returns the first domain a student should start working on as a string according to test data and domain order' do
-	    expect(PathwayLogic.starting_domain(@test_data, @parsed_domains)).to eq "RI"
+ 			lowest_domains_hash = PathwayLogic.find_lowest_domains(@test_data)
+	    expect(PathwayLogic.starting_domain(lowest_domains_hash, @parsed_domains)).to eq "0.RI"
  		end		
+
  	end 	
 end
