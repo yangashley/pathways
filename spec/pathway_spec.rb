@@ -2,9 +2,8 @@ require_relative '../pathway'
 
 describe 'Pathway' do
 
-	data = { student_name: "Jayde Beahan",
-     			 goal_domains: ["K.RI", "1.RI", "2.RF", "2.RI", "3.RF"]
-   }
+	@student_name = "Jayde Beahan"
+  @goal_domains = ["K.RI", "1.RI", "2.RF", "2.RI", "3.RF"]
  
   let (:pathway) {Pathway.new(data)}
 
