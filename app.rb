@@ -3,8 +3,6 @@ require_relative 'test_parser'
 require_relative 'pathway_logic'
 require_relative 'pathway'
 
-
-
 test_data = TestParser.parse('data/student_tests.csv')
 domain_data = DomainParser.parse('data/domain_order.csv') 
 
@@ -13,7 +11,6 @@ test_data.each do |student_hash|
 	pathways << Pathway.new(student_hash["Student Name"])
 end 
 
-# convert all 'K's to 0
 converted_data = test_data.each do |student_data_hash|
 	PathwayLogic.convert_letter_k_to_zero(student_data_hash)
 end
@@ -38,7 +35,3 @@ def add_first_domain_to_pathway(array_of_pathways, array_of_first_domains)
   array_of_pathways
 end
 
-
-
-
-# if first_domains has value "K.L, 1.L, 6.L", then don't add this into a student's learning pathway because the array of domain_data hashes don't contain these values
