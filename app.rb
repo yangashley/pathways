@@ -29,7 +29,14 @@ lowest_domains.each do |student_data_hash|
 	first_domains << PathwayLogic.starting_domain(student_data_hash, domain_data)
 end
 
-
+def add_first_domain_to_pathway(array_of_pathways, array_of_first_domains)
+  i = 0
+  while i < array_of_first_domains.length
+    array_of_pathways[i].add_unit_to_goal_domains(array_of_first_domains[i])
+    i += 1
+  end
+  array_of_pathways
+end
 
 
 

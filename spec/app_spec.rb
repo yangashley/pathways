@@ -11,7 +11,7 @@ describe 'App' do
 
 		it 'returns an array of Pathway objects that each have a student name and first domain' do
 			updated_pathways = add_first_domain_to_pathway(pathways, first_domains)
-			expect(updated_pathways.first.goal_domains).to eq "2.RI"
+			expect(updated_pathways.first.goal_domains.first).to eq "2.RI"
 		end
 	end
 end
