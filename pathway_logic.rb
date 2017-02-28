@@ -30,13 +30,12 @@ module PathwayLogic
 	end	
 
 	def self.starting_domain(test_hash, domain_order)
-	 first_domain = ""
+	first_domain = ""
+	key = test_hash.keys.first
 	  if test_hash.length == 1
-	    key = test_hash.keys.first
-	    first_domain += "#{test_hash[key]}.#{key}" 
+	  	first_domain += "#{test_hash[key]}.#{key}" 
 	  else
 	    domain_indices = []
-	    key = test_hash.keys.first
       ordered_domains = PathwayLogic.lowest_grade_domain_order(test_hash, domain_order)
       test_hash.keys.each do |domain|
         domain_indices << ordered_domains.index(domain)
