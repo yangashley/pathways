@@ -45,6 +45,14 @@ describe 'PathwayLogic' do
  			lowest_domains_hash = PathwayLogic.find_lowest_domains(@test_data)
 	    expect(PathwayLogic.starting_domain(lowest_domains_hash, @parsed_domains)).to eq "0.RI"
  		end		
+ 	end 
 
- 	end 	
+ 	describe '#find_domains_for_grade' do 
+ 		let(:test_hash) { {"RF"=>"0", "RL"=>"0", "RI"=>"4", "L"=>"3"} }
+
+ 		it 'returns the next domain(s) for a learning path in an array' do 
+ 			current_domain = "0.RF"
+ 			expect(PathwayLogic.find_domains_for_grade(current_domain, @parsed_domains, test_hash)).to eq ["0.RL"]
+ 		end
+ 	end	
 end

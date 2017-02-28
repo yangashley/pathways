@@ -9,10 +9,6 @@ This exercise uses students' standardized test scores and the Common Core State 
 ``` bash
 $ bundle install
 ```
-* Run the following command to generate learning paths
-``` bash
-$ ruby app.rb learning paths
-```
 
 ## Dependencies
 * Ruby 2.2.5 

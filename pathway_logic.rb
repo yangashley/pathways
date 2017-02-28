@@ -30,13 +30,12 @@ module PathwayLogic
 	end	
 
 	def self.starting_domain(test_hash, domain_order)
-	 first_domain = ""
+	first_domain = ""
+	key = test_hash.keys.first
 	  if test_hash.length == 1
-	    key = test_hash.keys.first
-	    first_domain += "#{test_hash[key]}.#{key}" 
+	  	first_domain += "#{test_hash[key]}.#{key}" 
 	  else
 	    domain_indices = []
-	    key = test_hash.keys.first
       ordered_domains = PathwayLogic.lowest_grade_domain_order(test_hash, domain_order)
       test_hash.keys.each do |domain|
         domain_indices << ordered_domains.index(domain)
@@ -46,5 +45,27 @@ module PathwayLogic
     end
     first_domain
 	end
+
+	# takes domains from the goal_domain array of a Pathway
+	def self.find_domains_for_grade(goal_domain, domain_order, test_hash)
+		grade_domain = goal_domain.split(".")
+		current_level = grade_domain[0]
+		current_domain = grade_domain[-1]
+		next_goal = []
+
+		if current_level != "0"
+	    possible_domains = domain_order[current_level]
+	  else
+	    possible_domains = domain_order["K"]
+	  end
+	  possible_domains.each do |domain|
+	  	if domain != current_domain
+	  		if current_level >= test_hash[domain]
+	 	  		next_goal << "#{current_level}.#{domain}"
+	  		end
+	  	end
+	  end
+	  next_goal
+	end
 end
-  
+
