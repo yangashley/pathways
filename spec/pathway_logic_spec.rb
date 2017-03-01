@@ -57,8 +57,10 @@ describe 'PathwayLogic' do
  	end	
 
  	describe '#find_possible_domains' do
- 		it 'returns an array of all possible domains for a pathway' do
- 			expect(PathwayLogic.find_possible_domains).to be_an Array
+ 		let(:rf_array) { ["K.RF", "1.RF", "2.RF", "3.RF"] }
+
+ 		it 'returns an array of all possible grade levels for a particular domain for a student' do
+ 			expect(PathwayLogic.find_possible_domains("2.RF", rf_array)).to eq ["2.RF", "3.RF"]
  		end
  	end
 end

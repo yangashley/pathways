@@ -67,5 +67,10 @@ module PathwayLogic
 	  end
 	  next_goal
 	end
+
+	def self.find_possible_domains(domain, domain_array)
+		domain_array[domain_array.index(domain)..-1]
+	end 
 end
+
 
