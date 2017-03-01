@@ -43,5 +43,12 @@ describe TestParser do
     end 
   end
 
+  describe '#prepare_data_for_pathways' do 
+    let(:clean_data) { TestParser.prepare_data_for_pathways('data/student_tests.csv') }
+
+    it 'returns a hash of student test data with unsupported domains removed' do 
+      expect(clean_data).not_to include("K.L", "1.L", "4.RF", "5.RF", "6.RF", "6.L")
+    end
+  end
 end		  
 
