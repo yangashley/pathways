@@ -55,4 +55,10 @@ describe 'PathwayLogic' do
  			expect(PathwayLogic.find_domains_for_grade(current_domain, @parsed_domains, test_hash)).to eq ["0.RL"]
  		end
  	end	
+
+ 	describe '#find_possible_domains' do
+ 		it 'returns an array of all possible domains for a pathway' do
+ 			expect(PathwayLogic.find_possible_domains).to be_an Array
+ 		end
+ 	end
 end

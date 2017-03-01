@@ -18,4 +18,16 @@ describe DomainParser do
   		expect(ordered_domains[0]).to eq "K.RF" 
   	end
   end
+
+  describe '#grades_in_each_domain' do
+    let(:grades_domains) { DomainParser.grades_in_each_domain('data/domain_order.csv') }
+    
+    it 'returns a hash with domains for keys' do
+      expect(grades_domains.keys). to eq ["RF", "RL", "RI", "L"]
+    end  
+
+    it 'returns a hash with values that are arrays of all possible grades for a domain' do
+      expect(grades_domains.values[0]). to eq ["K.RF", "1.RF", "2.RF", "3.RF"]
+    end
+  end
 end		  
