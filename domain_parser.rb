@@ -8,4 +8,22 @@ module DomainParser
 		end
 		domain_order_hash
 	end
+
+	def self.parse_domains(filename)
+	  ordered_domains = []
+	  CSV.foreach(filename) do |row|
+	    domain = row.shift
+	    ordered_domains << row.map {|elem| "#{domain}.#{elem}"}
+	  end
+	  ordered_domains.flatten
+	end
 end
+
+
+# parse domains into one big array of all possible domains
+# then when you check the missions a student needs for learning pathway, you can start getting rid of the ones that don't apply and be left the ones needed
+# ["K.RF","K.RL","K.RI", "1.RF","1.RL","1.RI" ...]
+
+# currently .parse does this
+# domain_data = DomainParser.parse('data/domain_order.csv') 
+# domain_data = {"K"=>["RF", "RL", "RI"], "1"=>["RF", "RL", "RI"], "2"=>["RF", "RI", "RL", "L"], "3"=>["RF", "RL", "RI", "L"], "4"=>["RI", "RL", "L"], "5"=>["RI", "RL", "L"], "6"=>["RI", "RL"]}
