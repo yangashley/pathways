@@ -17,4 +17,10 @@ module DomainParser
 	  end
 	  ordered_domains.flatten
 	end
+
+	def self.all_grades_in_domain(array_of_all_domains, domain)
+		array_of_all_domains.select {|elem| elem.include?(domain)}	
+	end
 end
+
+

@@ -19,15 +19,12 @@ describe DomainParser do
   	end
   end
 
-  describe '#grades_in_each_domain' do
-    let(:grades_domains) { DomainParser.grades_in_each_domain('data/domain_order.csv') }
+  describe '#all_grades_in_domain' do
+    let(:all_domains) { DomainParser.parse_domains('data/domain_order.csv') }
+    let(:rf_array) { DomainParser.all_grades_in_domain(all_domains, "RF") }
     
-    it 'returns a hash with domains for keys' do
-      expect(grades_domains.keys). to eq ["RF", "RL", "RI", "L"]
+    it 'returns an array of all the possible grades for a domain' do
+      expect(rf_array). to eq ["K.RF", "1.RF", "2.RF", "3.RF"]
     end  
-
-    it 'returns a hash with values that are arrays of all possible grades for a domain' do
-      expect(grades_domains.values[0]). to eq ["K.RF", "1.RF", "2.RF", "3.RF"]
-    end
   end
 end		  
