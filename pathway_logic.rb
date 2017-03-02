@@ -76,3 +76,4 @@ module PathwayLogic
 		(ordered_domains_array & all_domains_for_pathway).first(5) 
 	end
 end
+

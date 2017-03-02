@@ -7,17 +7,19 @@ test_data_hash = TestParser.prepare_data_for_pathways('data/student_tests.csv')
 all_domains_ordered = DomainParser.parse_domains('data/domain_order.csv') 
 
 
+def generate_all_domains_for_pathway(all_domains_ordered, domain)
+	abbreviation = domain.split(".")[-1]
+	all_grades = DomainParser.all_grades_in_domain(all_domains_ordered, abbreviation)
+	PathwayLogic.find_possible_domains(domain, all_grades)
+end
+
 def build_pathway(student_data_hash, all_domains_ordered)
 	student_data_hash.each do |student, test_scores|
 		total_pathway = Array.new
 		test_scores.each do |domain|
-			abbreviation = domain.split(".")[-1]
-			all_grades = DomainParser.all_grades_in_domain(all_domains_ordered, abbreviation)
-			total_pathway << PathwayLogic.find_possible_domains(domain, all_grades)
+			total_pathway << generate_all_domains_for_pathway(all_domains_ordered, domain)
 		end
-		puts "===="
 		complete_pathway = PathwayLogic.produce_pathway(all_domains_ordered, total_pathway.flatten)
-		p complete_pathway
 	end
 end
 
