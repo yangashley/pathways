@@ -69,11 +69,25 @@ module PathwayLogic
 	end
 
 	def self.find_possible_domains(domain, domain_array)
-		domain_array[domain_array.index(domain)..-1]
+		if !domain_array.include?(domain)		
+			grade = domain.split(".")[0].to_i
+			domain = domain.split(".")[-1]
+			last_grade_in_domain = domain_array.last.split(".")[0].to_i
+			if grade <= last_grade_in_domain
+				domain_array
+			end
+		else
+			domain_array[domain_array.index(domain)..-1]
+		end
 	end 	
 
 	def self.produce_pathway(ordered_domains_array, all_domains_for_pathway)
 		(ordered_domains_array & all_domains_for_pathway).first(5) 
 	end
 end
+
+# returns nil
+# PathwayLogic.find_possible_domains("5.RF", ["K.RF", "1.RF", "2.RF", "3.RF"])
+# PathwayLogic.find_possible_domains("K.L", ["2.L", "3.L", "4.L", "5.L"])
+# PathwayLogic.find_possible_domains("K.L", ["2.RL", "3.RL", "4.RL", "5.RL"])
 

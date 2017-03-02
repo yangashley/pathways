@@ -58,9 +58,14 @@ describe 'PathwayLogic' do
 
  	describe '#find_possible_domains' do
  		let(:rf_array) { ["K.RF", "1.RF", "2.RF", "3.RF"] }
+ 		let(:l_array) { ["2.L", "3.L", "4.L", "5.L"] }
 
  		it 'returns an array of all possible grade levels for a particular domain for a student' do
  			expect(PathwayLogic.find_possible_domains("2.RF", rf_array)).to eq ["2.RF", "3.RF"]
+ 		end
+
+ 		it 'returns an array of all possible grade levels for a domain if student test data is lower than the starting grade for the domain' do
+ 			expect(PathwayLogic.find_possible_domains("K.L", l_array)).to eq ["2.L", "3.L", "4.L", "5.L"]
  		end
  	end
 
