@@ -28,8 +28,6 @@ def build_pathway(student_data_hash, all_domains_ordered)
 	final_pathway
 end
 
-all_final_pathways = build_pathway(test_data_hash, all_domains_ordered)
-
 def create_pathways(student_data_hash, all_final_pathways)
 	all_pathways = Array.new
 	student_data_hash.keys.each.with_index do |student_name, index|
@@ -37,6 +35,4 @@ def create_pathways(student_data_hash, all_final_pathways)
 	end
 	all_pathways
 end
-
-
 
