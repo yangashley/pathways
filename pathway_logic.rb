@@ -70,7 +70,7 @@ module PathwayLogic
 
 	def self.find_possible_domains(domain, domain_array)
 		domain_array[domain_array.index(domain)..-1]
-	end 
+	end 	
 
 	def self.produce_pathway(ordered_domains_array, all_domains_for_pathway)
 		(ordered_domains_array & all_domains_for_pathway).first(5) 
