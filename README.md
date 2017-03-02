@@ -30,8 +30,6 @@ $ "1.RF".split(".")[-1]
 ```
 	* I took #all_grades_in_domain out of DomainParser and put it in Domain
 
-
-
 ## Takeaways
 * While I did break the challenge into smaller pieces during my first attempt, I think that I was expecting program to behave like a human. I tried to write a program that would remember the correct domain order, what domains were already part of the pathway, and what domains were next.
 	* I tried to find the lowest domain and then build the pathway by checking each grade/domain one by one.
