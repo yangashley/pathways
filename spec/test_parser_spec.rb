@@ -1,28 +1,6 @@
 require_relative '../test_parser'
 
 describe TestParser do
-  describe '#parse' do
-
-  before(:all) do
-    @test_data = TestParser.parse('data/student_tests.csv')
-	end
-    it 'should return an array of hashes' do
-      expect(@test_data).to be_an Array
-    end
-
-    context "hashes in the array" do
-    	let(:test_hash) { @test_data[0] }
-
-      it 'have a student name for the value of the first key-value pair' do 
-      	expect(test_hash["Student Name"]).to eq "Albin Stanton"
-    	end
-
-  	  it 'have a grade level for the value of any key-value pair excluding the first one' do 
-  	  	expect(test_hash["RF"]).to eq "2"
-  	  end
-    end
-  end
-
   describe '#parse_tests' do 
     let(:student_data) { TestParser.parse_tests('data/student_tests.csv') }
 
@@ -42,13 +20,5 @@ describe TestParser do
       expect(student_data).not_to include "Student Name"
     end 
   end
-
-  # describe '#prepare_data_for_pathways' do 
-  #   let(:clean_data) { TestParser.prepare_data_for_pathways('data/student_tests.csv') }
-
-  #   it 'returns a hash of student test data with unsupported domains removed' do 
-  #     expect(clean_data).not_to include("K.L", "1.L", "4.RF", "5.RF", "6.RF", "6.L")
-  #   end
-  # end
 end		  
 
