@@ -20,3 +20,8 @@ $ bundle install
 	* I put the logic for determining goal domains in a separate module as well.
 * I used hashes and arrays for keeping track of the data because they have many methods that allowed me to manipulate the structures to suit my needs
 
+## Takeaways
+* While I did break the challenge into smaller pieces during my first attempt, I think that I was expecting program to behave like a human. I tried to write a program that would remember the correct domain order, what domains were already part of the pathway, and what domains were next.
+	* I tried to find the lowest domain and then build the pathway by checking each grade/domain one by one.
+* After rephrasing the problem, my next attempt at the exercise was very similar to how a person might sit down and create learning paths by hand. 
+	* Instead of building pathways one domain at a time, I collected all possible domains for a pathway and picked the first five from a large collection.
