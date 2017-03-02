@@ -25,15 +25,15 @@ module TestParser
 		student_data
 	end
 
-	def self.prepare_data_for_pathways(filename)
-		unsupported_domains = ["K.L", "1.L", "4.RF", "5.RF", "6.RF", "6.L"]		
-		
-		TestParser.parse_tests(filename).each do |student, test_data|
-			student = test_data.delete_if { |domain| unsupported_domains.include?(domain) }
-		end
-	end
-end
 
+	# def self.prepare_data_for_pathways(filename)
+	# 	unsupported_domains = ["K.L", "1.L", "4.RF", "5.RF", "6.RF", "6.L"]		
+		
+	# 	TestParser.parse_tests(filename).each do |student, test_data|
+	# 		student = test_data.delete_if { |domain| unsupported_domains.include?(domain) }
+	# 	end
+	# end
+end
 
 
 
