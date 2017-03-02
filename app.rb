@@ -5,12 +5,8 @@ require_relative 'pathway_logic'
 require_relative 'pathway'
 require_relative 'pathway_writer'
 
-def generate_all_possible_grades(all_domains_ordered, domain_name)
-	Domain.new(domain_name).all_grades_in_domain(all_domains_ordered)
-end
-
 def generate_all_domains(all_domains_ordered, domain)
-	all_grades = generate_all_possible_grades(all_domains_ordered, domain)
+	all_grades = Domain.new(domain).all_grades_in_domain(all_domains_ordered)
 	PathwayLogic.find_possible_domains(domain, all_grades)
 end
 
@@ -39,5 +35,5 @@ all_domains_ordered = DomainParser.parse_domains('data/domain_order.csv')
 
 generated_pathways = build_pathway(test_data_hash, all_domains_ordered)
 
-pathways = create_pathways(test_data_hash, generated_pathways)
+p pathways = create_pathways(test_data_hash, generated_pathways)
 # PathwayWriter.write_to_csv('data/student_pathways.csv', pathways)

@@ -1,5 +1,6 @@
 class Domain
 	attr_accessor :domain_name
+	
 	def initialize(domain_name)
 		@domain_name = domain_name.split(".")[-1]
 	end
