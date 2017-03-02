@@ -30,10 +30,15 @@ def create_pathways(student_data_hash, all_final_pathways)
 	all_pathways
 end
 
-test_data_hash = TestParser.parse_tests('data/student_tests.csv')
-all_domains_ordered = DomainParser.parse_domains('data/domain_order.csv')
+def generate_learning_paths_file(test_data_file, domain_order_file, results_file)
+	test_data_hash = TestParser.parse_tests(test_data_file)
+	all_domains_ordered = DomainParser.parse_domains(domain_order_file)
 
-generated_pathways = build_pathway(test_data_hash, all_domains_ordered)
+	generated_pathways = build_pathway(test_data_hash, all_domains_ordered)
+	pathways = create_pathways(test_data_hash, generated_pathways)
+	PathwayWriter.write_to_csv(results_file, pathways)
+end
 
-p pathways = create_pathways(test_data_hash, generated_pathways)
-# PathwayWriter.write_to_csv('data/student_pathways.csv', pathways)
+generate_learning_paths_file('data/student_tests.csv', 'data/domain_order.csv', 'data/student_pathways.csv')
+
+		
