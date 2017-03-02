@@ -9,17 +9,6 @@ module DomainParser
 	  end
 	  ordered_domains.flatten
 	end
-
-	def self.all_grades_in_domain(array_of_all_domains, domain)
-		all_grades = Array.new
-		domain = domain.split(".")[-1]
-		array_of_all_domains.each do |elem|
-			if elem.split(".")[-1] == domain
-				all_grades << elem
-			end
-		end 
-		all_grades
-	end
 end
 
 

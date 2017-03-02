@@ -1,12 +1,12 @@
 require_relative 'domain_parser'
+require_relative 'domain'
 require_relative 'test_parser'
 require_relative 'pathway_logic'
 require_relative 'pathway'
 require_relative 'pathway_writer'
 
-def generate_all_possible_grades(all_domains_ordered, domain)
-	domain = domain.split(".")[-1]
-	DomainParser.all_grades_in_domain(all_domains_ordered, domain)
+def generate_all_possible_grades(all_domains_ordered, domain_name)
+	Domain.new(domain_name).all_grades_in_domain(all_domains_ordered)
 end
 
 def generate_all_domains(all_domains_ordered, domain)
@@ -38,5 +38,6 @@ test_data_hash = TestParser.parse_tests('data/student_tests.csv')
 all_domains_ordered = DomainParser.parse_domains('data/domain_order.csv')
 
 generated_pathways = build_pathway(test_data_hash, all_domains_ordered)
+
 pathways = create_pathways(test_data_hash, generated_pathways)
-PathwayWriter.write_to_csv('data/student_pathways.csv', pathways)
+# PathwayWriter.write_to_csv('data/student_pathways.csv', pathways)

@@ -9,6 +9,10 @@ This exercise uses students' standardized test scores and the Common Core State 
 ``` bash
 $ bundle install
 ```
+* Run the following command to write generated learning paths to student_pathways.csv
+``` bash
+$ ruby app.rb 
+```
 
 ## Dependencies
 * Ruby 2.2.5 
