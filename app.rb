@@ -1,8 +1,8 @@
 require_relative 'domain_parser'
-require_relative 'domain'
+require_relative 'models/domain'
 require_relative 'test_parser'
 require_relative 'pathway_logic'
-require_relative 'pathway'
+require_relative 'models/pathway'
 require_relative 'pathway_writer'
 
 def generate_all_domains(all_domains_ordered, domain)
@@ -36,9 +36,9 @@ def generate_learning_paths_file(test_data_file, domain_order_file, results_file
 
 	generated_pathways = build_pathway(test_data, all_domains_ordered)
 	pathways = create_pathways(test_data, generated_pathways)
-	PathwayWriter.write_to_csv(results_file, pathways)
+	# PathwayWriter.write_to_csv(results_file, pathways)
 end
 
-generate_learning_paths_file('data/student_tests.csv', 'data/domain_order.csv', 'data/student_pathways.csv')
+p generate_learning_paths_file('data/student_tests.csv', 'data/domain_order.csv', 'data/student_pathways.csv')
 
 		
