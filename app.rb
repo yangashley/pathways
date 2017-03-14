@@ -35,7 +35,7 @@ def generate_learning_paths_file(test_data_file, domain_order_file, results_file
 	all_domains_ordered = DomainParser.parse_domains(domain_order_file)
 
 	generated_pathways = build_pathway(test_data, all_domains_ordered)
-	pathways = create_pathways(test_data, generated_pathways)
+	p pathways = create_pathways(test_data, generated_pathways)
 	PathwayWriter.write_to_csv(results_file, pathways)
 end
 

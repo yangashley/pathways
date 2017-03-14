@@ -10,7 +10,7 @@ module TestParser
 		data_without_headers.map do |student|
 			student_name = student.shift	
 			student_domains = student.map.with_index do |grade, index| 
-				"#{grade}.#{test_domains[index]}"
+				"#{grade.strip}.#{test_domains[index]}"
 			end
 			student_data.store(student_name, student_domains) 
 		end

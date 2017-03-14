@@ -1,4 +1,4 @@
-require_relative '../domain'
+require_relative '../models/domain'
 require_relative '../domain_parser'
 
 describe Domain do

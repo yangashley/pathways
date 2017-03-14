@@ -1,4 +1,4 @@
-require_relative '../pathway'
+require_relative '../models/pathway'
 
 describe 'Pathway' do
 
