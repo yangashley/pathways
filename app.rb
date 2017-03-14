@@ -41,4 +41,3 @@ end
 
 generate_learning_paths_file('data/student_tests.csv', 'data/domain_order.csv', 'data/student_pathways.csv')
 
-		

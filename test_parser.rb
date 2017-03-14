@@ -12,7 +12,7 @@ module TestParser
 			student_domains = student.map.with_index do |grade, index| 
 				"#{grade}.#{test_domains[index]}"
 			end
-			student_data.store(student_name, student_domains) 
+			student_data[student_name] = student_domains
 		end
 		student_data
 	end
