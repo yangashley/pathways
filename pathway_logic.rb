@@ -1,10 +1,12 @@
 module PathwayLogic
 	def self.find_possible_domains(domain, domain_array)
+		all_possible_grades = ["K", "1", "2", "3", "4", "5", "6"]
+
 		if !domain_array.include?(domain)		
-			grade = domain.split(".")[0].to_i
+			grade = domain.split(".")[0]
 			domain = domain.split(".")[-1]
-			last_grade_in_domain = domain_array.last.split(".")[0].to_i
-			if grade <= last_grade_in_domain
+			last_grade_in_domain = all_possible_grades.last
+			if all_possible_grades.index(grade) <= all_possible_grades.index(last_grade_in_domain)
 				domain_array
 			end
 		else
