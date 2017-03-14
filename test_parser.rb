@@ -2,6 +2,7 @@ require 'csv'
 
 module TestParser
 	def self.parse_tests(filename)
+# CSV can handle headers itself with the right args.
 		data_without_headers = CSV.read(filename)
 		all_headers = data_without_headers.shift
 		test_domains = all_headers[1..-1]
@@ -12,7 +13,7 @@ module TestParser
 			student_domains = student.map.with_index do |grade, index| 
 				"#{grade}.#{test_domains[index]}"
 			end
-			student_data.store(student_name, student_domains) 
+			student_data[student_name] = student_domains
 		end
 		student_data
 	end
