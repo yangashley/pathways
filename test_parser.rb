@@ -2,7 +2,6 @@ require 'csv'
 
 module TestParser
 	def self.parse_tests(filename)
-# CSV can handle headers itself with the right args.
 		data_without_headers = CSV.read(filename)
 		all_headers = data_without_headers.shift
 		test_domains = all_headers[1..-1]
