@@ -4,6 +4,7 @@ require_relative 'test_parser'
 require_relative 'pathway_logic'
 require_relative 'models/pathway'
 require_relative 'pathway_writer'
+require 'pry'
 
 def generate_all_domains(all_domains_ordered, domain)
 	all_grades = Domain.new(domain).all_grades_in_domain(all_domains_ordered)
@@ -40,5 +41,16 @@ def generate_learning_paths_file(test_data_file, domain_order_file, results_file
 end
 
 generate_learning_paths_file('data/student_tests.csv', 'data/domain_order.csv', 'data/student_pathways.csv')
+
+# Method to generate learning pathway objects for Rails/UI portion of interview 
+# def generate_learning_paths_objects(test_data_file, domain_order_file)
+# 	test_data = TestParser.parse_tests(test_data_file)
+# 	all_domains_ordered = DomainParser.parse_domains(domain_order_file)
+
+# 	generated_pathways = build_pathway(test_data, all_domains_ordered)
+# 	create_pathways(test_data, generated_pathways)
+# end
+
+# generate_learning_paths_objects('data/student_tests.csv', 'data/domain_order.csv')
 
 		
